@@ -1,0 +1,91 @@
+// Define the Shape interface with a default method
+interface Shape {
+    // Default method to provide a general description
+    default void printInfo() {
+        System.out.println("Shape info: No specific details provided.");
+    }
+
+    // Abstract method to calculate the area
+    double calculateArea();
+}
+
+// Circle class implementing Shape interface
+class Circle1 implements Shape {
+    private double radius;
+    private String color;
+
+    public Circle1(double radius, String color) {
+        this.radius = radius;
+        this.color = color;
+    }
+
+    // Implement calculateArea method for Circle
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    // Override printInfo method
+    @Override
+    public void printInfo() {
+        System.out.println("Circle - Color: " + color + ", Radius: " + radius + ", Area: " + calculateArea());
+    }
+}
+
+// Rectangle class implementing Shape interface
+class Rectanglee implements Shape {
+    private double length;
+    private double width;
+    private String color;
+
+    public Rectanglee(double length, double width, String color) {
+        this.length = length;
+        this.width = width;
+        this.color = color;
+    }
+
+    // Implement calculateArea method for Rectangle
+    @Override
+    public double calculateArea() {
+        return length * width;
+    }
+
+    // Override printInfo method
+    @Override
+    public void printInfo() {
+        System.out.println("Rectangle - Color: " + color + ", Length: " + length + ", Width: " + width + ", Area: " + calculateArea());
+    }
+}
+
+// Sign class with a Shape and text
+class Sign {
+    private Shape shape;
+    private String text;
+
+    public Sign(Shape shape, String text) {
+        this.shape = shape;
+        this.text = text;
+    }
+
+    public void displaySign() {
+        shape.printInfo();
+        System.out.println("Sign text: " + text);
+    }
+}
+
+// Main class to execute the program
+public class p23 {
+    public static void main(String[] args) {
+        // Create Circle and Rectangle objects
+        Circle1 circle = new Circle1(5.0, "red");
+        Rectanglee rectangle = new Rectanglee(10.0, 4.0, "blue");
+
+        // Create Sign objects
+        Sign circleSign = new Sign(circle, "Circle Event!");
+        Sign rectangleSign = new Sign(rectangle, "Rectangle Sale!");
+
+        // Display the signs
+        circleSign.displaySign();
+        rectangleSign.displaySign();
+    }
+}
