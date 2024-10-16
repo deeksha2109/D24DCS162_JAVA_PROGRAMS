@@ -1,0 +1,28 @@
+class Parent {
+    public void parentMethod() {
+        System.out.println("This is parent class");
+    }
+}
+
+class Child extends Parent {
+    public void childMethod() {
+        System.out.println("This is child class");
+    }
+}
+class Child2 extends Parent {
+    public void childMethod2() {
+        System.out.println("This is another child class");
+    }
+}
+
+public class p17 {
+    public static void main(String[] args) {
+
+        Parent p1 = new Parent();
+        p1.parentMethod();
+        Child c1 = new Child();
+        c1.childMethod();
+        Child2 c2 = new Child2();
+        c2.childMethod2();
+    }
+}
