@@ -1,0 +1,39 @@
+import java.io.*;
+
+public class p31 {
+    public static void main(String[] args) {
+        String fileName = "output.txt";
+
+        // Using BufferedReader to read console input
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+
+            System.out.println("Enter text to write to the file (type 'exit' to finish):");
+
+            String line;
+            while (!(line = reader.readLine()).equalsIgnoreCase("exit")) {
+                writer.write(line);
+                writer.newLine();
+            }
+
+            System.out.println("Text successfully written to " + fileName);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Using byte streams to read the file and display its content
+        try (FileInputStream fileInputStream = new FileInputStream(fileName)) {
+            System.out.println("\nContents of the file:");
+
+            int data;
+            while ((data = fileInputStream.read()) != -1) {
+                System.out.print((char) data);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
