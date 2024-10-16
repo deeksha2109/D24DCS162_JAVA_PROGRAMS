@@ -1,0 +1,62 @@
+import java.util.*;
+
+class Date
+{
+    int day1;
+    int month;
+    int year;
+
+    public Date(int i, int i1, int i2) {
+        this.day1 = i;
+        this.month = i1;
+        this.year = i2;
+    };
+
+    public void setDay(int day) {
+        this.day1 = day;
+        //setDay(21);
+    };
+    public int getDay(int day) {
+        return day;
+    };
+
+    public void setMonth(int month) {
+        this.month = month;
+        //setMonth(9);
+    };
+    public int getMonth() {
+        return month;
+    };
+
+    public void setYear(int year) {
+        this.year = year;
+        //setYear(2);
+    };
+
+    public int getYear() {
+        return year;
+    };
+
+    void DateDisplay()
+    {
+        System.out.println(day1+"/"+month+"/"+year);
+    };
+
+}
+
+public class p14
+{
+    public static void main(String args[])
+    {
+        //Scanner sc = new Scanner(System.in);
+
+        Date d2 = new Date(21,9,2002);
+        System.out.print("Initial date: ");
+        d2.DateDisplay();
+        d2.setDay(24);
+        d2.setMonth(07);
+        d2.setYear(2024);
+        System.out.print("Updated date: ");
+        d2.DateDisplay();
+    }
+}
