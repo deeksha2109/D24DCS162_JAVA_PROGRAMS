@@ -1,0 +1,15 @@
+import java.util.*;
+public class p12
+{
+    public static void main(String arg[])
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the amount in Pounds: ");
+        double pounds = scanner.nextDouble();
+        double rupees = 100*(pounds);
+        System.out.println(pounds + " Pounds is equal to " + rupees + " Rupees.");
+        scanner.close();
+    }
+
+}
+
