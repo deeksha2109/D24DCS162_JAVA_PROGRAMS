@@ -1,0 +1,24 @@
+
+public class p32 {
+
+    static class HelloWorldThread extends Thread {
+        public void run() {
+            System.out.println("Hello from Thread class!");
+        }
+    }
+
+    static class HelloWorldRunnable implements Runnable {
+        public void run() {
+            System.out.println("Hello from Runnable interface!");
+        }
+    }
+
+    public static void main(String[] args) {
+        HelloWorldThread thread1 = new HelloWorldThread();
+        thread1.start();
+
+        HelloWorldRunnable helloWorldRunnable = new HelloWorldRunnable();
+        Thread thread2 = new Thread(helloWorldRunnable);
+        thread2.start();
+    }
+}
