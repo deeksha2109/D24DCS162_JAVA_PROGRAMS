@@ -1,0 +1,31 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+public class p28
+{
+    public static void main(String[] args) {
+        // Check if character and file are passed as arguments
+        if (args.length != 2) {
+            System.out.println("Usage: java CharacterCounter <character> <filename>");
+            return;
+        }
+
+        char searchChar = args[0].charAt(0);
+        String fileName = args[1];
+
+        int count = 0;
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            int c;
+
+            while ((c = reader.read()) != -1) {
+                if (c == searchChar) {
+                    count++;
+                }
+            }
+            System.out.println("The character '" + searchChar + "' appears " + count + " times in the file.");
+        } catch (IOException e) {
+            System.out.println("Error reading the file: " + e.getMessage());
+        }
+    }
+}
