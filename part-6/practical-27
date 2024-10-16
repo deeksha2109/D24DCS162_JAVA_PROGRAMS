@@ -1,0 +1,32 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class P27 {
+    public static void main(String[] args) {
+
+        if (args.length == 0) {
+            System.out.println("No files provided Please specify text files.");
+            return;
+        }
+
+        for (String fileName : args) {
+            File file = new File(fileName);
+
+            try (Scanner scanner = new Scanner(file)) {
+                int lineCount = 0;
+
+                while (scanner.hasNextLine()) {
+                    scanner.nextLine();
+                    lineCount++;
+                }
+
+                System.out.println(fileName + ": " + lineCount + " lines");
+
+            } catch (FileNotFoundException e) {
+
+                System.err.println("Error: File '" + fileName + "' not found or could not be opened.");
+            }
+        }
+    }
+}
