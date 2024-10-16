@@ -1,0 +1,18 @@
+public class p11 {
+    public static void main(String[] args) {
+
+        String str = "CHARUSAT UNIVERSITY";
+
+
+        int length = str.length();
+        System.out.println("Length of the string: " + length);
+
+
+        String modifiedStr = str.replace('H', 'D');
+        System.out.println("String after replacing 'H' with 'D': " + modifiedStr);
+
+
+        String lowercaseStr = str.toLowerCase();
+        System.out.println("String in lowercase: " + lowercaseStr);
+    }
+}
