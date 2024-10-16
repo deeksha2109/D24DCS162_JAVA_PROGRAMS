@@ -1,0 +1,47 @@
+
+class InvalidAgeException extends Exception {
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+}
+
+public class p26 {
+
+
+    public static void checkAge(int age) throws InvalidAgeException {
+        if (age < 18) {
+            throw new InvalidAgeException("Age must be 18 or above to vote.");
+        } else {
+            System.out.println("You are eligible to vote.");
+        }
+    }
+
+
+    public static void checkedExceptionDemo() throws java.io.IOException {
+        java.io.FileReader file = new java.io.FileReader("nonexistentfile.txt"); // This will throw FileNotFoundException
+    }
+
+    public static void uncheckedExceptionDemo() {
+        int result = 10 / 0; // This will throw ArithmeticException
+        String str = null;
+        str.length(); // This will throw NullPointerException
+    }
+
+    public static void main(String[] args) {
+        try {
+            checkAge(22); // This will throw an InvalidAgeException
+        } catch (InvalidAgeException e) {
+            System.out.println("Caught User-Defined Exception: " + e.getMessage());
+        }
+        try {
+            checkedExceptionDemo();
+        } catch (java.io.IOException e) {
+            System.out.println("Caught Checked Exception: " + e);
+        }
+        try {
+            uncheckedExceptionDemo();
+        } catch (ArithmeticException | NullPointerException e) {
+            System.out.println("Caught Unchecked Exception: " + e);
+        }
+    }
+}
