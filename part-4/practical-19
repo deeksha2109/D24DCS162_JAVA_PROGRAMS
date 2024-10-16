@@ -1,0 +1,57 @@
+class Rectangle {
+    protected double length;
+    protected double breadth;
+
+    public Rectangle(double length, double breadth) {
+        this.length = length;
+        this.breadth = breadth;
+    }
+
+    public void printArea() {
+        double area = length * breadth;
+        System.out.println("Area of Rectangle: " + area);
+    }
+
+    public void printPerimeter() {
+        double perimeter = 2 * (length + breadth);
+        System.out.println("Perimeter of Rectangle: " + perimeter);
+    }
+}
+
+class Square extends Rectangle {
+
+    public Square(double side) {
+        super(side, side);
+    }
+
+    @Override
+    public void printArea() {
+        double area = length * length;
+        System.out.println("Area of Square: " + area);
+    }
+
+    @Override
+    public void printPerimeter() {
+        double perimeter = 4 * length;
+        System.out.println("Perimeter of Square: " + perimeter);
+    }
+}
+
+public class p19 {
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle(8, 2);
+        Square square = new Square(5);
+
+        Rectangle[] shapes = {rectangle, square};
+
+        for (Rectangle shape : shapes) {
+            if (shape instanceof Square) {
+                System.out.println("For Square:");
+            } else {
+                System.out.println("For Rectangle:");
+            }
+            shape.printArea();
+            shape.printPerimeter();
+        }
+    }
+}
